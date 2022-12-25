@@ -1,0 +1,34 @@
+ALGORITHM  overlapping-elem
+VAR
+tab1:=Tableau
+tab2:=Tableau
+i,j := INTEGER;  
+som,somme:=INTEGER;
+somme=0;
+
+BEGIN    
+write("donner deux tableaux de valeurs ");     
+FOR i FROM 0 TO length(tab1)-1 STEP 1  DO
+    write ("T1 [" , i , "] :");
+    read(tab1[i]):
+END_FOR
+
+FOR i FROM 0 TO length(tab2)-1 STEP 1  DO
+    write ("T2 [" , i , "] :");
+    read(tab2[i]);
+END_FOR
+
+FOR i FROM 1 TO length(tab1) STEP 1  DO
+som=tab1[i]
+    FOR j FROM 1 TO length(tab2) STEP 1  DO
+    
+        IF (tab1[i]==tab2[j]) THEN
+            som=som+tab1[j];
+            somme=somme+som;
+        END_IF
+    END_FOR
+END_FOR
+
+write("la somme des valeurs égaux est:",somme);
+
+END

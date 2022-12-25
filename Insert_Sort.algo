@@ -1,0 +1,62 @@
+ALGORITHM insertion_Sort
+CONST
+nmax = 15
+
+VAR
+tab : Tableau [1..nmax] of INTEGER
+
+   
+PROCEDURE CHARGEMENT ( VAR T : tab ; N :entier)
+VAR
+  i : INTEGER;
+BEGIN
+  FOR i FROM 0 TO N-1 STEP 1  DO
+    write ("T [" , i , "] :");
+    read(T[i]);
+  END_FOR
+END 
+
+PROCEDURE insertion_Sort(T : tab ; N : entier)
+VAR
+i,j,key:INTEGER;
+BEGIN
+j=2;
+WHILE (j<=length(tab)) DO
+    i:=j-1;
+    key:=T[j]
+
+/* Move elements of tab[0..j-1], that are greater than key, to one position ahead
+of their current position */
+    WHILE (i>0 and tab[i]>key) DO
+      T[i+1]:=T[i];
+      i:=i-1;
+    END_WHILE
+    T[i+1]:=key;
+    j:=j+1;
+END_WHILE
+END
+
+PROCEDURE Affiche( T : tab ; N : entier)
+VAR
+  i : INTEGER;
+BEGIN
+  FOR i FROM 0 TO N-1 STEP 1  DO
+  write(T[i]," ");
+END_FOR
+END 
+
+BEGIN 
+write("donner les valeurs de 15 cartes ");  
+CHARGEMENT(T,15);
+insertion_Sort(T,15);
+write("vos cartes sont ordonnées comme ainsi");
+Affiche(T,15);
+END
+
+
+
+
+
+
+
+

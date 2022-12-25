@@ -1,0 +1,42 @@
+ALGORITHM  Different-elem
+VAR
+tab1:=Tableau
+tab2:=Tableau
+tab3:=Tableau
+i,j := INTEGER;  
+somme:=INTEGER;
+somme=0;
+test:=BOOLEAN;
+
+BEGIN    
+write("donner deux tableaux de valeurs ");     
+FOR i FROM 0 TO length(tab1)-1 STEP 1  DO
+    write ("T1 [" , i , "] :");
+    read(tab1[i]);
+END_FOR
+
+FOR i FROM 0 TO length(tab2)-1 STEP 1  DO
+    write ("T2 [" , i , "] :");
+    read(tab2[i]):
+END_FOR
+
+FOR i FROM 0 TO length(tab1)-1 STEP 1  DO
+   test=true;
+   FOR j FROM 0 TO length(tab2)-1 STEP 1  DO
+    IF (tab1[i]==tab2[j]) THEN
+        tab2[j]:=0;
+        test:=false;
+    END_IF
+   END_FOR
+   IF (test==true) THEN
+    somme:=somme+tab1[i];
+   END_IF
+END_FOR
+
+FOR i FROM 0 TO length(tab2)-1 STEP 1  DO
+    somme=somme+tab2[i];
+END_FOR
+
+
+write("la somme des valeurs différents est:", somme);
+END

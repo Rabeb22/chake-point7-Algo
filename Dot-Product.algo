@@ -1,0 +1,50 @@
+ALGORITHM Dot Product
+VAR
+CONST
+nmax = 3
+
+VAR
+tab : Tableau [1..nmax] of FLOAT
+
+
+
+
+PROCEDURE CHARGEMENT ( VAR T : tab ; N :entier)
+VAR
+  i : INTEGER
+BEGIN
+  FOR i FROM 0 TO N-1 STEP 1  DO
+    write ("T [" , i , "] :")
+    read(T[i])
+  END_FOR
+END 
+
+PROCEDURE Dot_Product(VAR T1,T2 : tab ; N :entier)
+VAR
+  i,j:INTEGER;
+  ps:FLOAT;
+  ps=0;
+BEGIN
+  FOR i FROM 0 TO N-1 STEP 1 DO         
+      ps=ps+T1[i]*T2[i];
+END_FOR 
+IF (ps==0) THEN
+    write("Les deux vecteurs sont orthogonaux");
+ELSE
+    write("Les deux vecteurs ne sont pas orthogonaux");
+END_IF 
+END
+
+BEGIN    
+write("donner deux vecteurs de valeurs de meme longueure egal 3");     
+CHARGEMENT(T1,3);
+CHARGEMENT(T2,3);
+Dot_Product(T1,T2,3);
+END
+
+
+
+
+
+
+
